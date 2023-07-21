@@ -18,7 +18,7 @@ Please follow the [Tauri Prerequisites](https://tauri.app/v1/guides/getting-star
 
 Developing and debugging the project:
 ```sh
-cargo tauri build
+cargo tauri dev
 ```
 
 Building the project:
