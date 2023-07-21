@@ -17,12 +17,7 @@
 import { ref, onMounted } from "vue";
 import { invoke } from "@tauri-apps/api";
 
-let greeting = ref("Greeting");
 let video_id = ref("");
-
-async function greet(name: string) {
-  greeting.value = await invoke("greet", { name: name });
-}
 
 async function load_video() {
   video_id.value = await invoke("load_video_id");
