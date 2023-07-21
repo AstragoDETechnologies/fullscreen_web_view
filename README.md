@@ -1,46 +1,27 @@
-# vue_add_tauri_later
+# fullscreen_yt_video_player
 
-This template should help get you started developing with Vue 3 in Vite.
+This simple Tauri-App opens a YouTube video in full-screen mode.
 
-## Recommended IDE Setup
+## For Users:
+You can add an `id.txt` file containing only the YouTube Video ID to the same directory that contains the executable to play a certain video.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### Example:
+Filename: `id.txt`
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+#### Contents:
+```txt
+f8mL0_4GeV0
 ```
 
-### Compile and Hot-Reload for Development
+## For Developers:
+Please follow the [Tauri Prerequisites](https://tauri.app/v1/guides/getting-started/prerequisites).
 
+Developing and debugging the project:
 ```sh
-npm run dev
+cargo tauri build
 ```
 
-### Type-Check, Compile and Minify for Production
-
+Building the project:
 ```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
+cargo tauri build
 ```
