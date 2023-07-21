@@ -14,7 +14,9 @@ f8mL0_4GeV0
 ```
 
 ## For Developers:
-Please follow the [Tauri Prerequisites](https://tauri.app/v1/guides/getting-started/prerequisites).
+![Techstack](https://skillicons.dev/icons?i=rust,vue,ts)
+
+Install Rust, NodeJS and Yarn and follow the [Tauri Prerequisites](https://tauri.app/v1/guides/getting-started/prerequisites). 
 
 Developing and debugging the project:
 ```sh
