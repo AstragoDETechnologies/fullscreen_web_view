@@ -3,23 +3,18 @@
 This simple Tauri-App opens a YouTube video in full-screen mode.
 
 ## For Users:
-You can add an `id.txt` file containing only the YouTube Video ID to the same directory that contains the executable to play a certain video.
-To start the video at a specific time create a `start_time.txt` file.
+You can add a `config.json` file to configure the video and start time.
 
-### Example (Video ID):
-Filename: `id.txt`
+### Example Configuration:
+*Note that if the configuration file is missing or incorrectly formatted, the default configuration will be used instead.*
 
-#### Contents:
-```txt
-f8mL0_4GeV0
-```
-
-### Example (Start Time):
-Filename: `start_time.txt`
-
-#### Contents:
-```txt
-17
+Filename: `config.json`
+#### File Contents:
+```json
+{
+    "video_id": "dQw4w9WgXcQ",
+    "start_time": 0
+}
 ```
 
 ## For Developers:
@@ -27,12 +22,17 @@ Filename: `start_time.txt`
 
 Install Rust, NodeJS and Yarn and follow the [Tauri Prerequisites](https://tauri.app/v1/guides/getting-started/prerequisites). 
 
-Developing and debugging the project:
+Then install the Tauri CLI:
+```sh
+cargo install tauri-cli
+```
+
+### Developing and debugging the project:
 ```sh
 cargo tauri dev
 ```
 
-Building the project:
+### Building the project:
 ```sh
 cargo tauri build
 ```

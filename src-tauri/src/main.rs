@@ -6,32 +6,53 @@ extern crate pretty_env_logger;
 #[macro_use]
 extern crate log;
 
-#[tauri::command]
-fn load_video_id() -> String {
-    info!("Loading ID");
-    let video_id: String = String::from(
-        std::fs::read_to_string("id.txt")
-            .unwrap_or(String::from("dQw4w9WgXcQ"))
-            .trim(),
-    );
-    video_id
+// Load Json Config
+
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug, Serialize, Deserialize)]
+struct Config {
+    video_id: String,
+    start_time: u32,
+}
+
+impl Config {
+    fn default() -> Self {
+        Config {
+            video_id: String::from("Ct6BUPvE2sM"),
+            start_time: 14,
+        }
+    }
 }
 
 #[tauri::command]
-fn load_start_time() -> u8 {
-    info!("Loading ID");
-    let video_id: u8 = (std::fs::read_to_string("start_time.txt")
-        .unwrap_or(String::from("0")) // if file cannot be found
-        .trim())
-    .parse::<u8>()
-    .unwrap_or(0); //If Text cannot be parsed
-    video_id
+fn load_config() -> Config {
+    info!("Loading Config");
+
+    let config_string = std::fs::read_to_string("config.json");
+
+    let config: Config = match config_string {
+        // If file could be read, try to parse the file and return the struct
+        Ok(contents) => {
+            let config = serde_json::from_str(&contents);
+            match config {
+                // If parsing the config file worked, return the config
+                Ok(config) => config,
+                // If parsing the file fails, return the default config
+                Err(_) => Config::default(),
+            }
+        }
+        // If reading the file fails, return the default config
+        Err(_) => Config::default(),
+    };
+
+    config
 }
 
 fn main() {
     pretty_env_logger::init_timed();
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![load_video_id, load_start_time])
+        .invoke_handler(tauri::generate_handler![load_config])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
