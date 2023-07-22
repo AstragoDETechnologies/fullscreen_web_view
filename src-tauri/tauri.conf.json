@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "fullscreen_yt_video_player",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "tauri": {
     "allowlist": {
@@ -54,7 +54,7 @@
     },
     "windows": [
       {
-        "fullscreen": false,
+        "fullscreen": true,
         "height": 600,
         "resizable": true,
         "title": "fullscreen_yt_video_player by AstragoDE",
