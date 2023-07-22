@@ -4,13 +4,22 @@ This simple Tauri-App opens a YouTube video in full-screen mode.
 
 ## For Users:
 You can add an `id.txt` file containing only the YouTube Video ID to the same directory that contains the executable to play a certain video.
+To start the video at a specific time create a `start_time.txt` file.
 
-### Example:
+### Example (Video ID):
 Filename: `id.txt`
 
 #### Contents:
 ```txt
 f8mL0_4GeV0
+```
+
+### Example (Start Time):
+Filename: `start_time.txt`
+
+#### Contents:
+```txt
+17
 ```
 
 ## For Developers:
