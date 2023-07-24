@@ -5,13 +5,7 @@
       class="h-screen w-screen"
       width="100%"
       height="100%"
-      :src="
-        'https://www.youtube.com/embed/' +
-        config.video_id +
-        '?start=' +
-        config.start_time +
-        '&autoplay=1'
-      "
+      :src="(config.url as string)"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -27,8 +21,7 @@ import { invoke } from "@tauri-apps/api";
 let config = ref<Config | null>(null);
 
 interface Config {
-  video_id: String;
-  start_time: number;
+  url: String;
 }
 
 async function load_config() {

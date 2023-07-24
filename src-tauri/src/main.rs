@@ -12,15 +12,15 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
 struct Config {
-    video_id: String,
-    start_time: u32,
+    url: String,
 }
 
 impl Config {
     fn default() -> Self {
         Config {
-            video_id: String::from("Ct6BUPvE2sM"),
-            start_time: 14,
+            url: String::from(
+                "https://www.youtube-nocookie.com/embed/Ct6BUPvE2sM?start=14&autoplay=1",
+            ),
         }
     }
 }
@@ -45,6 +45,8 @@ fn load_config() -> Config {
         // If reading the file fails, return the default config
         Err(_) => Config::default(),
     };
+
+    debug!("Current Config: {:?}", config);
 
     config
 }

@@ -1,13 +1,13 @@
 {
   "build": {
-    "beforeBuildCommand": "yarn build",
-    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:5173",
     "distDir": "../dist"
   },
   "package": {
-    "productName": "fullscreen_yt_video_player",
-    "version": "0.3.0"
+    "productName": "fullscreen_web_view",
+    "version": "0.4.0"
   },
   "tauri": {
     "allowlist": {
@@ -57,7 +57,7 @@
         "fullscreen": true,
         "height": 600,
         "resizable": true,
-        "title": "fullscreen_yt_video_player by AstragoDE",
+        "title": "Fullscreen Web View by AstragoDE",
         "width": 800
       }
     ]
